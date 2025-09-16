@@ -219,14 +219,10 @@ document.addEventListener('DOMContentLoaded', () => {
         typeText(prompt, "Are you a human?").then(() => { yesBtn.disabled = false; });
         yesBtn.addEventListener('click', async () => {
             overlay.style.pointerEvents = 'none';
-            if(overlayInner) overlayInner.style.pointerEvents = 'auto'; // ensure this can be clicked
-
-            yesBtn.style.display = 'none'; // Hide button immediately on click
+            if(overlayInner) overlayInner.style.pointerEvents = 'auto';
+            yesBtn.style.display = 'none';
             prompt.classList.add('fade');
-            overlay.classList.add('revealing'); // Start fog animation
-            fog.fadeOut(1200);
-
-            if(overlayInner) overlayInner.style.pointerEvents = 'none'; // and now disable its events
+            if(overlayInner) overlayInner.style.pointerEvents = 'none';
             await unlockAudio();
             setupAudio();
             scheduleNextKnock();
@@ -246,7 +242,6 @@ document.addEventListener('DOMContentLoaded', () => {
             requestAnimationFrame(()=>{ notEl.style.color = '#ddd'; }); // fade to white via CSS transition
             pulseNotRandomly(notEl);
             await typing;
-            overlay.classList.add('fade-out');
         }, { once: true });
     }
 
