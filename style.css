@@ -387,6 +387,7 @@ footer {
     cursor: pointer;
     position: relative; /* For pseudo-element */
     overflow: hidden; /* For pseudo-element */
+    margin-top: 1.5rem;
 }
 
 .overlay-btn:disabled {

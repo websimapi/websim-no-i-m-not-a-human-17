@@ -213,16 +213,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const title = document.getElementById('main-title');
         const titleText = title.getAttribute('aria-label') || "NO, I'M NOT A HUMAN";
 
-        // Position the button based on where the h1 is
-        const titleRect = title.getBoundingClientRect();
-        if (titleRect.height > 0) { // check if title is rendered
-            yesBtn.style.position = 'absolute';
-            yesBtn.style.top = `${titleRect.top}px`;
-            yesBtn.style.left = '50%';
-            yesBtn.style.transform = 'translateX(-50%)';
-            yesBtn.style.marginTop = `${titleRect.height / 2 - yesBtn.offsetHeight / 2}px`;
-        }
-
         typeText(prompt, "Are you a human?").then(() => { yesBtn.disabled = false; });
         yesBtn.addEventListener('click', async () => {
             overlay.style.pointerEvents = 'none';
