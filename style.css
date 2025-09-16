@@ -333,6 +333,32 @@ footer {
      --rotation: 20deg;
 }
 
+.fog-overlay {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 50%;
+    background-color: rgba(10, 10, 10, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1;
+    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.fog-overlay.left {
+    left: 0;
+}
+.fog-overlay.right {
+    right: 0;
+}
+
+.ui-overlay.revealing .fog-overlay.left {
+    transform: translateX(-100%);
+}
+.ui-overlay.revealing .fog-overlay.right {
+    transform: translateX(100%);
+}
+
 .audio-unlock {
   position: fixed; right: 1rem; bottom: 1rem;
   padding: 0.5rem 0.75rem; background: rgba(0,0,0,0.6);
@@ -363,6 +389,8 @@ footer {
     align-items: center;
     pointer-events: auto; /* Allow clicks within the inner container */
     padding: 2vmin;
+    position: relative; /* Ensure it's on top of the fog */
+    z-index: 2;
 }
 
 #overlay-prompt {

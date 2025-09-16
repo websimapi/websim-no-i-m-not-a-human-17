@@ -220,6 +220,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             yesBtn.style.display = 'none'; // Hide button immediately on click
             prompt.classList.add('fade');
+            overlay.classList.add('revealing'); // Start fog animation
+
             if(overlayInner) overlayInner.style.pointerEvents = 'none'; // and now disable its events
             await unlockAudio();
             setupAudio();
