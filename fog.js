@@ -2,7 +2,7 @@ export class FogFX {
   constructor(selector) {
     this.canvas = document.querySelector(selector);
     this.gl = this.canvas.getContext('webgl', { premultipliedAlpha: false });
-    this.time = 0; this.running = false; this.opacity = 0.75;
+    this.time = 0; this.running = false; this.opacity = 0.9;
     if (!this.gl) return;
     this._init();
     window.addEventListener('resize', () => this._resize(), { passive: true });
@@ -84,4 +84,3 @@ void main(){
   }
   stop(){ this.running=false; }
 }
-
