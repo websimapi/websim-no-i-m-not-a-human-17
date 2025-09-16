@@ -207,6 +207,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function initOverlayFlow() {
         const overlay = document.getElementById('ui-overlay');
+        const fogCanvas = document.getElementById('fog-canvas');
+        const fog = new FogFX('#fog-canvas'); fog.start();
         const prompt = document.getElementById('overlay-prompt');
         const yesBtn = document.getElementById('overlay-yes');
         const overlayInner = overlay.querySelector('.overlay-inner');
@@ -221,6 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
             yesBtn.style.display = 'none'; // Hide button immediately on click
             prompt.classList.add('fade');
             overlay.classList.add('revealing'); // Start fog animation
+            fog.fadeOut(1200);
 
             if(overlayInner) overlayInner.style.pointerEvents = 'none'; // and now disable its events
             await unlockAudio();
