@@ -394,6 +394,23 @@ footer {
     opacity: 0; /* fade the wisps as panels slide */
 }
 
+.ui-overlay::before,
+.ui-overlay::after {
+    content: ""; position: fixed; inset: -12%;
+    z-index: 1; pointer-events: none; opacity: 0.65;
+    background:
+        radial-gradient(120% 80% at 20% 30%, rgba(255,255,255,0.16), rgba(255,255,255,0) 70%),
+        radial-gradient(110% 70% at 80% 60%, rgba(255,255,255,0.12), rgba(255,255,255,0) 75%),
+        url(static_noise.png);
+    mix-blend-mode: screen; filter: url(#fog-noise);
+    animation: fogDriftA 22s ease-in-out infinite alternate;
+}
+
+.ui-overlay::after {
+    opacity: 0.4; transform: scale(1.05) rotate(0.2deg);
+    animation: fogDriftB 32s ease-in-out infinite alternate;
+}
+
 .audio-unlock {
   position: fixed; right: 1rem; bottom: 1rem;
   padding: 0.5rem 0.75rem; background: rgba(0,0,0,0.6);

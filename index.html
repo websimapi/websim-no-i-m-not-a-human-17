@@ -39,8 +39,12 @@
                 <feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="3" seed="8" result="noise">
                     <animate attributeName="baseFrequency" values="0.01 0.018;0.014 0.022;0.012 0.02" dur="14s" repeatCount="indefinite"/>
                 </feTurbulence>
-                <feGaussianBlur in="noise" stdDeviation="1.2" result="softNoise"/>
-                <feDisplacementMap in="SourceGraphic" in2="softNoise" scale="22" xChannelSelector="R" yChannelSelector="G"/>
+                <feTurbulence type="fractalNoise" baseFrequency="0.008 0.016" numOctaves="5" seed="13" result="noise2">
+                    <animate attributeName="baseFrequency" values="0.007 0.014;0.011 0.02;0.008 0.016" dur="18s" repeatCount="indefinite"/>
+                </feTurbulence>
+                <feBlend mode="screen" in="noise" in2="noise2" result="mix"/>
+                <feGaussianBlur in="mix" stdDeviation="0.8" result="softNoise"/>
+                <feDisplacementMap in="SourceGraphic" in2="softNoise" scale="28" xChannelSelector="R" yChannelSelector="G"/>
             </filter>
         </defs>
     </svg>
